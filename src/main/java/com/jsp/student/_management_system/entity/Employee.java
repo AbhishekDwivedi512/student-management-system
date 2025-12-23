@@ -20,8 +20,8 @@ import java.time.LocalDateTime;
 @Validated
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "student_id_seq")
-    @SequenceGenerator(name = "student_id_seq",initialValue = 100000,allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "employee_id_seq")
+    @SequenceGenerator(name = "employee_id_seq",initialValue = 100000,allocationSize = 1)
     private int employeeId;
     @Size(min =2,message = "min 2 character required")
     private String name;
