@@ -18,7 +18,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Validated
-public class Student {
+
+public class Students {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "student_id_seq")
     @SequenceGenerator(name = "student_id_seq",initialValue = 100000,allocationSize = 1)
@@ -29,7 +30,7 @@ public class Student {
     private String email;
     @Size(min=10,max = 10,message = "value phone number")
     private String phone;
-    private String Password;
+    private String password;
     private LocalDate dateOfBirth;
     @CreationTimestamp
     private LocalDateTime createdAt;
