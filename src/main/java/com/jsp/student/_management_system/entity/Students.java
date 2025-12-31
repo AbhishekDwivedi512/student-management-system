@@ -6,10 +6,14 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Setter
@@ -19,7 +23,7 @@ import java.time.LocalDateTime;
 @Builder
 @Validated
 
-public class Students {
+public class Students  {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "student_id_seq")
     @SequenceGenerator(name = "student_id_seq",initialValue = 100000,allocationSize = 1)
@@ -38,5 +42,6 @@ public class Students {
     private LocalDateTime updatedAt;
 
     private String role;
+
 
 }
