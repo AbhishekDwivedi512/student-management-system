@@ -1,6 +1,7 @@
 package com.jsp.student._management_system.controller;
 
 import com.jsp.student._management_system.dto.AuthResponse;
+import com.jsp.student._management_system.dto.LoginRequest;
 import com.jsp.student._management_system.dto.RegisterRequest;
 import com.jsp.student._management_system.service.AuthService;
 import jakarta.validation.Valid;
@@ -22,5 +23,10 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(@RequestBody @Valid RegisterRequest registerRequest){
         return ResponseEntity.status(HttpStatus.CREATED).body(authService.register(registerRequest));
+    }
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponse> login(
+            @RequestBody LoginRequest request) {
+        return ResponseEntity.ok(authService.login(request));
     }
 }
