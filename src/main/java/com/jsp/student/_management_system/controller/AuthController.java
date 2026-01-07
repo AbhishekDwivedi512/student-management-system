@@ -7,9 +7,7 @@ import com.jsp.student._management_system.entity.Students;
 import com.jsp.student._management_system.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,8 +30,8 @@ public class AuthController {
         return ResponseEntity.ok(authService.login(request));
     }
 
-    @GetMapping("All")
 
+    @GetMapping("/All")
     public List<Students> findAll() {
         return authService.findAll();
     }

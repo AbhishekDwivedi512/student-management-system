@@ -5,7 +5,10 @@ import com.jsp.student._management_system.dao.StudentRepository;
 import com.jsp.student._management_system.dto.AuthResponse;
 import com.jsp.student._management_system.dto.LoginRequest;
 import com.jsp.student._management_system.dto.RegisterRequest;
+import com.jsp.student._management_system.dto.RegisterRequestForEmployee;
+import com.jsp.student._management_system.entity.Employee;
 import com.jsp.student._management_system.entity.Students;
+import com.jsp.student._management_system.exception.EmployeeException;
 import com.jsp.student._management_system.exception.StudentException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,7 +22,6 @@ import java.util.Optional;
 public class AuthServiceImpl implements AuthService {
 
     private final StudentRepository studentRepository;
-    private final EmployeeRepository employeeRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Override
@@ -69,4 +71,6 @@ public class AuthServiceImpl implements AuthService {
     public List<Students> findAll() {
         return studentRepository.findAll();
     }
+
+
 }
