@@ -4,7 +4,7 @@ import com.jsp.student._management_system.dto.AuthResponse;
 import com.jsp.student._management_system.dto.LoginRequest;
 import com.jsp.student._management_system.dto.RegisterRequest;
 import com.jsp.student._management_system.entity.Students;
-import com.jsp.student._management_system.service.AuthService;
+import com.jsp.student._management_system.service.student.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,14 +1,13 @@
 package com.jsp.student._management_system.controller;
 
-import com.jsp.student._management_system.dao.EmployeeRepository;
 import com.jsp.student._management_system.dto.AuthResponse;
-import com.jsp.student._management_system.dto.RegisterRequest;
-import com.jsp.student._management_system.service.AuthService;
+import com.jsp.student._management_system.dto.LoginRequestForEmployee;
+import com.jsp.student._management_system.dto.RegisterRequestForEmployee;
+import com.jsp.student._management_system.service.employees.AuthServiceforEmployee;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/auth/emp")
 @RequiredArgsConstructor
 public class AuthControllerEmployee {
-    private final AuthService authService;
-    @PostMapping("/register")
-   public ResponseEntity<AuthResponse>register(@RequestBody @Valid RegisterRequest registerRequest){
-        return ResponseEntity.status(HttpStatus.CREATED).body(authService.register(registerRequest));
+    private final AuthServiceforEmployee authServiceforEmployee;
+    @PostMapping("/registerEmployee")
+   public ResponseEntity<AuthResponse>register(@RequestBody @Valid RegisterRequestForEmployee registerRequestForEmployee){
+        return ResponseEntity.status(HttpStatus.CREATED).body(authServiceforEmployee.Employeeregister(registerRequestForEmployee));
+    }
+    @PostMapping("/loginEmployee")
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequestForEmployee loginRequestForEmployee){
+        return ResponseEntity.ok(authServiceforEmployee.Employeelogin(loginRequestForEmployee));
     }
 }

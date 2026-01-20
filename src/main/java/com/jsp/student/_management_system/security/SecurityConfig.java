@@ -1,6 +1,6 @@
 package com.jsp.student._management_system.security;
 
-import lombok.Builder;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.*;
 import org.springframework.security.authentication.*;
@@ -15,7 +15,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-@Builder
 public class SecurityConfig {
 
     private final JwtFilter jwtFilter;
@@ -28,8 +27,11 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/auth/emp/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/api/student/**").hasAnyRole("STUDENT", "ADMIN")
-                        .requestMatchers("/api/employee/**").hasAnyRole("EMPLOYEE", "ADMIN")
+                        .requestMatchers("/api/student/**").hasRole("STUDENT")
+                        //.requestMatchers("/api/employee/**").hasRole("EMPLOYEE")
+                        //.requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        //.requestMatchers("/api/student/**").hasAnyRole("STUDENT", "ADMIN")
+                        //.requestMatchers("/api/employee/**").hasAnyRole("EMPLOYEE", "ADMIN")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session ->

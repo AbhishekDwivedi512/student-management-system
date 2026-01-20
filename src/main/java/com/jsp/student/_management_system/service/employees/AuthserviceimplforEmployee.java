@@ -1,27 +1,30 @@
-package com.jsp.student._management_system.service;
+package com.jsp.student._management_system.service.employees;
 
 import com.jsp.student._management_system.dao.EmployeeRepository;
 import com.jsp.student._management_system.dto.AuthResponse;
+import com.jsp.student._management_system.dto.LoginRequestForEmployee;
 import com.jsp.student._management_system.dto.RegisterRequestForEmployee;
 import com.jsp.student._management_system.entity.Employee;
 import com.jsp.student._management_system.exception.EmployeeException;
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@Builder
 @RequiredArgsConstructor
-public class AuthserviceimplforEmployee implements AuthServiceforEmployee{
+public class AuthserviceimplforEmployee implements AuthServiceforEmployee {
 
     private final EmployeeRepository employeeRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Override
     public AuthResponse Employeeregister(RegisterRequestForEmployee registerRequestForEmployee) {
-        Optional<Employee> existingEmployee = employeeRepository.findByEmail(registerRequestForEmployee.getEmail());
+        Optional<Employee> existingEmployee =
+                employeeRepository.findByEmail(registerRequestForEmployee.getEmail());
         if(existingEmployee.isPresent()){
             throw new EmployeeException("Employee is not found");
         }
@@ -30,7 +33,7 @@ public class AuthserviceimplforEmployee implements AuthServiceforEmployee{
                 .email(registerRequestForEmployee.getEmail())
                 .phone(registerRequestForEmployee.getPhone())
                 .role(registerRequestForEmployee.getRole())
-                .Password(registerRequestForEmployee.getPassword())
+                .Password(passwordEncoder.encode(registerRequestForEmployee.getPassword()))
                 .dateOfBirth(registerRequestForEmployee.getDateOfBirth())
                 .build();
 
@@ -41,4 +44,22 @@ public class AuthserviceimplforEmployee implements AuthServiceforEmployee{
                 .email(saveEmployees.getEmail())
                 .build();
     }
+
+    @Override
+    public AuthResponse Employeelogin(LoginRequestForEmployee loginRequestForEmployee) {
+        Employee employee=employeeRepository.findByEmail(loginRequestForEmployee.getEmail())
+                .orElseThrow(() -> new EmployeeException("Invalid email or password"));
+
+        if(!passwordEncoder.matches(
+                loginRequestForEmployee.getPassword(),
+                employee.getPassword())){
+           throw new EmployeeException("Invalid email or password");
+        }
+
+        return AuthResponse.builder()
+                .name(employee.getName())
+                .email(employee.getEmail())
+                .build();
+    }
+
 }
