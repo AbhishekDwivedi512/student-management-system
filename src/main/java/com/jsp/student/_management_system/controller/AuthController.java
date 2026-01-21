@@ -1,8 +1,8 @@
 package com.jsp.student._management_system.controller;
 
 import com.jsp.student._management_system.dto.AuthResponse;
-import com.jsp.student._management_system.dto.LoginRequest;
-import com.jsp.student._management_system.dto.RegisterRequest;
+import com.jsp.student._management_system.dto.student.LoginRequest;
+import com.jsp.student._management_system.dto.student.RegisterRequest;
 import com.jsp.student._management_system.entity.Students;
 import com.jsp.student._management_system.service.student.AuthService;
 import jakarta.validation.Valid;

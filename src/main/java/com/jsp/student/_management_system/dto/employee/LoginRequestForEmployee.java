@@ -1,4 +1,4 @@
-package com.jsp.student._management_system.dto;
+package com.jsp.student._management_system.dto.employee;
 
 import lombok.Data;
 

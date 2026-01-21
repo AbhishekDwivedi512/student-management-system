@@ -1,8 +1,8 @@
 package com.jsp.student._management_system.controller;
 
 import com.jsp.student._management_system.dto.AuthResponse;
-import com.jsp.student._management_system.dto.LoginRequestForEmployee;
-import com.jsp.student._management_system.dto.RegisterRequestForEmployee;
+import com.jsp.student._management_system.dto.employee.LoginRequestForEmployee;
+import com.jsp.student._management_system.dto.employee.RegisterRequestForEmployee;
 import com.jsp.student._management_system.service.employees.AuthServiceforEmployee;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

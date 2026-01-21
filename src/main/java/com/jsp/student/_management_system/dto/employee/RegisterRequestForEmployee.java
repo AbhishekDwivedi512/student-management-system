@@ -1,20 +1,23 @@
-package com.jsp.student._management_system.dto;
+package com.jsp.student._management_system.dto.employee;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
 
-@Getter
-@Setter
-@Builder
-@Validated
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RegisterRequest {
+@Builder
+@Validated
+public class RegisterRequestForEmployee {
+
     @NotEmpty
     private String name;
     @NotEmpty
@@ -27,3 +30,5 @@ public class RegisterRequest {
 
     private LocalDate dateOfBirth;
 }
+
+

@@ -2,8 +2,8 @@ package com.jsp.student._management_system.service.employees;
 
 import com.jsp.student._management_system.dao.EmployeeRepository;
 import com.jsp.student._management_system.dto.AuthResponse;
-import com.jsp.student._management_system.dto.LoginRequestForEmployee;
-import com.jsp.student._management_system.dto.RegisterRequestForEmployee;
+import com.jsp.student._management_system.dto.employee.LoginRequestForEmployee;
+import com.jsp.student._management_system.dto.employee.RegisterRequestForEmployee;
 import com.jsp.student._management_system.entity.Employee;
 import com.jsp.student._management_system.exception.EmployeeException;
 import lombok.Builder;
@@ -26,7 +26,7 @@ public class AuthserviceimplforEmployee implements AuthServiceforEmployee {
         Optional<Employee> existingEmployee =
                 employeeRepository.findByEmail(registerRequestForEmployee.getEmail());
         if(existingEmployee.isPresent()){
-            throw new EmployeeException("Employee is not found");
+            throw new EmployeeException("Employee is allReady with this Email ");
         }
         Employee employee =Employee.builder()
                 .name(registerRequestForEmployee.getName())
