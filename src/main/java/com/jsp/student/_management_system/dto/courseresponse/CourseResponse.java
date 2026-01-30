@@ -9,8 +9,8 @@ import lombok.*;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class CourseResponse {
-
+    private Integer courseId;
     private String courseName;
-    private double courseFees;
+    private Double courseFees;
 
 }

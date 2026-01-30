@@ -1,6 +1,7 @@
 package com.jsp.student._management_system.dto.courseresponse;
 
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,14 +13,10 @@ import org.springframework.validation.annotation.Validated;
 @AllArgsConstructor
 @Builder
 @Validated
-public class RegisterForCourse {
+public class UpdateCoursePrice {
 
-        @NotBlank
-        private String courseName;
+    @NotNull(message = "Course price is required")
+    @Positive(message = "Course price must be positive")
+    private Double CoursePrice;
 
-        @NotNull
-        @Positive
-        private Double courseFees;
-    }
-
-
+}

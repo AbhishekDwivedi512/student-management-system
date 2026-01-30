@@ -13,10 +13,10 @@ import lombok.*;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int courseId;
+    private Integer courseId;
     @Column(unique = true,nullable = false)
     private String courseName;
     @Column(nullable = false)
-    private double courseFees;
+    private Double courseFees;
 
 }
