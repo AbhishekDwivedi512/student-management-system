@@ -22,7 +22,7 @@ public class AuthControllerCourse {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(authServiceforCourse.courseregister(registerForCourse));
     }
-    @PutMapping("/priceupdate")
+    @PutMapping("/{id}/priceupdate")
     public ResponseEntity<CourseResponse> UpdatePrice(@PathVariable Integer id, @Valid @RequestBody UpdateCoursePrice updateCoursePrice){
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(authServiceforCourse.updateCource(id, updateCoursePrice));
     }

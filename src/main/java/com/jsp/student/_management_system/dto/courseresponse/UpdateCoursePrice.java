@@ -17,6 +17,6 @@ public class UpdateCoursePrice {
 
     @NotNull(message = "Course price is required")
     @Positive(message = "Course price must be positive")
-    private Double CoursePrice;
+    private Double coursePrice;
 
 }
