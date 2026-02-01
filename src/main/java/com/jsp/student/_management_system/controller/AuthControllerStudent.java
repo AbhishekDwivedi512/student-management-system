@@ -12,11 +12,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
-public class AuthController {
+public class AuthControllerStudent {
     private final AuthService authService;
 
     @PostMapping("/register")
@@ -35,5 +36,12 @@ public class AuthController {
     public List<Students> findAll() {
         return authService.findAll();
     }
+
+    @DeleteMapping("/delete/{studentId}")
+
+    public Optional<Students> deleteById(@PathVariable int studentId){
+        return authService.deleteById(studentId);
+    }
+
 
 }

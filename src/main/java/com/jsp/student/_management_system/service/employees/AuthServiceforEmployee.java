@@ -7,4 +7,5 @@ import com.jsp.student._management_system.dto.employee.RegisterRequestForEmploye
 public interface AuthServiceforEmployee {
     AuthResponse Employeeregister(RegisterRequestForEmployee registerRequestForEmployee);
     AuthResponse Employeelogin(LoginRequestForEmployee loginRequestForEmployee);
+
 }

@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface StudentRepository extends JpaRepository<Students,Integer>{
     Optional<Students> findByEmail(String email);
 
+    Optional<Students> deleteById(int studentId);
 }

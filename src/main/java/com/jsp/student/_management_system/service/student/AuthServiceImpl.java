@@ -68,5 +68,10 @@ public class AuthServiceImpl implements AuthService {
         return studentRepository.findAll();
     }
 
+    @Override
+    public Optional<Students> deleteById(int studentId) {
+        return studentRepository.deleteById(studentId);
+    }
+
 
 }
