@@ -70,6 +70,8 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Optional<Students> deleteById(int studentId) {
+        if(!studentRepository.existsById(studentId))
+            throw new StudentException("The student is not found with id"+studentId+" please check the id and try again");
         return studentRepository.deleteById(studentId);
     }
 

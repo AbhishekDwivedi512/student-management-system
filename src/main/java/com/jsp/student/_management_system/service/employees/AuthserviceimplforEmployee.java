@@ -62,4 +62,11 @@ public class AuthserviceimplforEmployee implements AuthServiceforEmployee {
                 .build();
     }
 
+    @Override
+    public Optional<Employee> deleteById(int employeeId) {
+        if(!employeeRepository.existsById(employeeId))
+            throw new EmployeeException("employee is not found with id"+employeeId+"please check the id");
+        return employeeRepository.deleteById(employeeId);
+    }
+
 }
