@@ -63,4 +63,13 @@ public class CourseImp implements AuthServiceforCourse{
                 .courseFees(saveprice.getCourseFees())
                 .build();
     }
+
+    @Override
+    public Optional<Course> deleteById(int courseId) {
+
+        if(!courseRepository.existsById(courseId))
+            throw new CourseException("The Course is not found with Id"+courseId+" Please Check the iD and try again");
+
+        return courseRepository.deleteById(courseId);
+    }
 }
