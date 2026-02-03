@@ -29,6 +29,21 @@ export default function EmployeeRegister() {
       /><br /><br />
 
       <input
+              placeholder="Phone"
+              onChange={e => setData({ ...data, phone: e.target.value })}
+      /><br /><br />
+
+      <input
+              placeholder="Role"
+              onChange={e => setData({ ...data, role: e.target.value })}
+      /><br /><br />
+
+      <input
+              placeholder="DateOfBirth"
+              onChange={e => setData({ ...data, dateOfBirth: e.target.value })}
+      /><br /><br />
+
+      <input
         type="password"
         placeholder="Password"
         onChange={e => setData({ ...data, password: e.target.value })}

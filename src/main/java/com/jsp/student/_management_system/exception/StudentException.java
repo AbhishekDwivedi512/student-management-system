@@ -4,5 +4,8 @@ public class StudentException extends RuntimeException{
 
     public StudentException(String message){
         super(message);
+
+        System.out.println("hello");
+
     }
 }

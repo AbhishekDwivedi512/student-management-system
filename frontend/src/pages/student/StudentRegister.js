@@ -13,6 +13,8 @@ export default function StudentRegister() {
       <h2>Student Register</h2>
       <input placeholder="Name" onChange={e => setData({ ...data, name: e.target.value })} />
       <input placeholder="Email" onChange={e => setData({ ...data, email: e.target.value })} />
+      <input placeholder="Phone" onChange={e => setData({ ...data, phone: e.target.value })} />
+      <input placeholder="DateOfBirth" onChange={e => setData({ ...data, dateOfBirth: e.target.value })} />
       <input placeholder="Password" type="password" onChange={e => setData({ ...data, password: e.target.value })} />
       <button onClick={submit}>Register</button>
     </div>
